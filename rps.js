@@ -1,31 +1,21 @@
 function getComputerChoice() {
-    const randomValue = Math.random();
-    if (randomValue < 0.33) {
-        return "r";
-    } else if (randomValue < 0.66) {
-        return "p";
-    } else {
-        return "s";
-    }
-}
-
-function getHumanChoice() {
-    let choice = prompt("Your turn: rock(r)/paper(p)/scissor(s)");
-    return choice;
+    const choices = ["rock", "paper", "scissors"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
+    console.log(`Human: ${humanChoice}, Computer: ${computerChoice}`);
 
     if (humanChoice === computerChoice) {
         console.log(`It's a tie! Both chose ${humanChoice}`);
     } else if (
-        (humanChoice === "r" && computerChoice === "s") ||
-        (humanChoice === "p" && computerChoice === "r") ||
-        (humanChoice === "s" && computerChoice === "p")
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
@@ -33,29 +23,21 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
     }
-}
-
-for (let i = 0; i < 5; i++) {
-    console.log(`--- Round ${i + 1} ---`);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
     console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
 }
 
-console.log("--- Final Result ---");
-if (humanScore > computerScore) {
-    console.log("Congratulations! You won the game!");
-} else if (computerScore > humanScore) {
-    console.log("Game over! The computer won.");
-        let isit = prompt("fav pokemon").toLowerCase();
-        if (isit = "urshifu"){
-            console.log("urshifu is gay");
-        }
-} else {
-    console.log("The game ended in a draw!");
-}
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 
+rockBtn.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
 
+paperBtn.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+});
 
-
+scissorsBtn.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+});
