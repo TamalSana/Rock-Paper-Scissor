@@ -16,7 +16,6 @@ body {
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 h1 {
@@ -35,28 +34,15 @@ h1 {
 }
 
 .choice-btn {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     padding: 1.5rem;
     border: none;
     border-radius: 15px;
-    cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
     color: white;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     width: 150px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.choice-btn:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
-}
-
-.choice-btn:active {
-    transform: translateY(0);
 }
 
 .choice-btn img {
@@ -69,15 +55,15 @@ h1 {
 }
 
 #rock {
-    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    background: rgba(233, 13, 13, 0.94);
 }
 
 #paper {
-    background: linear-gradient(145deg, #3498db, #2980b9);
+    background: rgba(18, 149, 193, 0.962);
 }
 
 #scissors {
-    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    background: rgba(9, 191, 204, 0.968);
 }
 
 .results-panel {
@@ -89,11 +75,6 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.results-panel p {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
 }
 
 .score-display {
